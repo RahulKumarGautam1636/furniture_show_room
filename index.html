@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Room homepage</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    * { padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+     }
+     body { font-family: 'Spartan', sans-serif; background: white; }
+     html {
+      font-size: 62.5%;
+    }
+     main {
+      height: 100vh;
+      width: 100%;
+    }
+    .upperRow {
+      height: 56rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      background: yellow;
+    }
+    .left {
+      height: 100%;
+      width: 140%;
+      background-image: url(images/desktop-image-hero-1.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .right {
+      height: 100%;
+      width: 100%;
+      background: white;
+      display: flex;
+      flex-direction: column;
+    }
+    .top {
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .discover {
+      padding: 10rem 10rem 0 10rem;
+    }
+    .discover h1 {
+      font-size: 3.5rem;
+    }
+    .discover p {
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      margin: 1.5rem 0 4rem 0;
+    }
+    .arrowHead {
+      height: 7rem;
+      width: 16rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      background: black;
+    }
+    .arrowHead button {
+      height: 100%;
+      width: 100%;
+      background: none;
+      padding-top: 5px;
+      border: none;
+      outline: none;
+    }
+    .arrowHead button:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .shop {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .shop h3 {
+     letter-spacing: 1.5rem;
+    }
+    .lowerRow {
+      height: 30rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .about {
+      padding: 7rem 5rem 7rem 5rem;
+    }
+    .about p {
+      font-size: 1.2rem;
+      line-height: 2.2rem;
+      margin-top: 1.5rem;
+    }
+    .black {
+      height: 100%;
+      width: 120%;
+      background-image: url(images/image-about-dark.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .white {
+      height: 100%;
+      width: 120%;
+      background-image: url(images/image-about-light.jpg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    .header {
+      /* padding-top: rem; */
+      position: absolute;
+      height: 10rem;
+      width: 40%;
+      background: transparent;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+    .header h3 {
+      color: white;
+      font-size: 1.5rem;
+    }
+    .header h1 {
+      color: white;
+      font-size: 3rem;
+      flex-grow: 1;
+      margin-left: 8rem;
+    }
+    #nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      flex-grow: 3;
+      align-items: center;
+    }
+    #svg1 {
+      display: none;
+      position: absolute;
+      top: 3rem;
+      left: 10px;
+    }
+
+    @media only screen and (max-width: 800px) {
+     html {
+       font-size: 60%;
+     }
+     main {
+       height: auto;
+     }
+     .upperRow {
+       height: 80rem;
+       display: flex;
+       flex-direction: column;
+     }
+     .right {
+       width: 100%;
+     }
+     .top {
+       order: 2;
+       width: 100%;
+     }
+     .discover {
+       padding: 1rem 3rem 4rem 3rem;
+       width: 100%;
+     }
+     .left {
+       background-image: url(images/mobile-image-hero-1.jpg);
+       width: 100%;
+     }
+     .arrowHead {
+       height: 6rem;
+       width: 12rem;
+       position: relative;
+       top: -5.9rem;
+       align-self: flex-end;
+       background: black;
+     }
+     .lowerRow {
+       height: 90rem;
+       display: flex;
+       flex-direction: column;
+     }
+     .black {
+       width: 100%;
+       background-size: 100% 100%;
+     }
+     .white {
+       width: 100%;
+       background-size: 100% 100%;
+     }
+     .about {
+       padding: 7rem 5rem 7rem 5rem;
+       text-align: center;
+     }
+     .header {
+       width: 100%;
+       height: 15rem;
+       flex-direction: column;
+       align-items: flex-end;
+       padding: 1rem;
+     }
+     #room {
+       display: none;
+       margin-left: 0;
+     }
+     #nav {
+       display: none;
+       flex-direction: column;
+       text-align: right;
+     }
+     #svg1 {
+       display: block;
+       margin-left: 1.8rem;
+     }
+
+
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="header">
+     <svg id="svg1" width="20" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M20 12v2H0v-2h20zm0-6v2H0V6h20zm0-6v2H0V0h20z" fill="#fff" fill-rule="evenodd"/></svg>
+     <h1 id="room">room</h1>
+     <div id="nav">
+     <h3>home</h3>
+     <h3>shop</h3>
+     <h3>about</h3>
+     <h3>contact</h3>
+   </div>
+    </div>
+    <div class="upperRow">
+      <div id="frontImage" class="left">
+        <!-- <img src="images/desktop-image-hero-1.jpg" alt="whiteChair"> -->
+      </div>
+      <div class="right">
+        <div class="top">
+          <div class="discover">
+
+          <h1>Discover innovative ways to decorate</h1>
+          <p>We provide unmatched quality, comfort, and style for property owners across the country.
+          Our experts combine form and function in bringing your vision to life. Create a room in your
+          own style with our collection and make your property a reflection of you and what you love.</p>
+          <div class="shop">
+            <h3>SHOP NOW</h3>
+            <svg width="40" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z" fill="#000" fill-rule="nonzero"/></svg>
+          </div>
+        </div>
+        </div>
+        <div class="arrowHead">
+          <button type="button" name="button"><svg width="14" height="24" onclick="leftClick()" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg></button>
+          <button type="button" name="button"><svg width="14" height="24" onclick="rightClick()" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg></button>
+          <!-- <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg> -->
+          <!-- <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg> -->
+        </div>
+      </div>
+    </div>
+    <div class="lowerRow">
+      <div class="black"></div>
+
+      <div class="about">
+        <h2>ABOUT OUR FURNITURE</h2>
+        <p>Our multifunctional collection blends design and function to suit your individual taste.
+        Make each room unique, or pick a cohesive theme that best express your interests and what
+        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+        or anything in between. Product specialists are available to help you create your dream space.</p>
+      </div>
+      <div class="white"></div>
+    </div>
+  </main>
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+  <script type="text/javascript">
+
+  var i = 0;
+  var imageList = [1, 2, 3]
+  var frontimage = document.getElementById("frontImage");
+  function leftClick() {
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      frontimage.style.backgroundImage = "url('images/mobile-image-hero-"+imageList[i]+".jpg')";
+    } else {
+      frontimage.style.backgroundImage = "url('images/desktop-image-hero-"+imageList[i]+".jpg')";
+    }
+    if (i==imageList.length-1) {
+      i = 0;
+    } else {
+      i++
+    }
+  }
+
+  function rightClick() {
+    if (i==0) {
+      i = imageList.length-1;
+    } else {
+      i--;
+    }
+    if (window.matchMedia("(max-width: 700px)").matches) {
+      frontimage.style.backgroundImage = "url('images/mobile-image-hero-"+imageList[i]+".jpg')";
+    } else {
+      frontimage.style.backgroundImage = "url('images/desktop-image-hero-"+imageList[i]+".jpg')";
+    }
+
+  }
+
+
+
+
+
+document.getElementById("svg1").addEventListener("click", function() {
+  if (document.getElementById("room").style.display == "none") {
+    document.getElementById("room").style.display = "inline";
+    document.getElementById("nav").style.display = "flex";
+  } else {
+    document.getElementById("room").style.display = "none";
+    document.getElementById("nav").style.display = "none";
+  }
+})
+  </script>
+</body>
+</html>
+
+
+<!-- Home
+Shop
+About
+Contact
+
+Discover innovative ways to decorate
+
+We provide unmatched quality, comfort, and style for property owners across the country.
+Our experts combine form and function in bringing your vision to life. Create a room in your
+own style with our collection and make your property a reflection of you and what you love.
+
+Shop now
+
+We are available all across the globe
+
+With stores all over the world, it's easy for you to find furniture for your home or place of business.
+Locally, we’re in most major cities throughout the country. Find the branch nearest you using our
+store locator. Any questions? Don't hesitate to contact us today.
+
+Shop now
+
+Manufactured with the best materials
+
+Our modern furniture store provide a high level of quality. Our company has invested in advanced technology
+to ensure that every product is made as perfect and as consistent as possible. With three decades of
+experience in this industry, we understand what customers want for their home and office.
+
+Shop now
+
+About our furniture
+
+Our multifunctional collection blends design and function to suit your individual taste.
+Make each room unique, or pick a cohesive theme that best express your interests and what
+inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+or anything in between. Product specialists are available to help you create your dream space. -->
