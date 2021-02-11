@@ -14,7 +14,9 @@
         margin: 0;
         box-sizing: border-box;
      }
-     body { font-family: 'Spartan', sans-serif; background: red; }
+     body { font-family: 'Spartan', sans-serif;
+            /* text-align: center; */
+          }
      html {
       font-size: 62.5%;
     }
@@ -117,7 +119,7 @@
       height: 15rem;
       width: 40%;
       display: flex;
-      background: red;
+      background: transparent;
       justify-content: space-evenly;
       align-items: center;
     }
@@ -126,7 +128,6 @@
       justify-content: space-evenly;
       align-items: center;
       flex-grow: 1;
-      /* border: 1px solid black; */
 
     }
     #nav h3 {
@@ -142,18 +143,17 @@
     #svg1 {
       position: absolute;
       z-index: 1;
-      margin: 2rem 0 0 2rem;
+      margin: 4rem 0 0 4rem;
+      display: none;
     }
     #close {
       position: absolute;
       z-index: 1;
-      top: 2rem;
-      right: 2rem;
+      margin: 4rem 0 0 4rem;
       display: none;
     }
-    .slider {
-      width: 100%;
-      background: rgba(0, 0, 255, 0.5);
+    .attribution {
+      text-align: center;
     }
 
   @media only screen and (max-width: 800px) {
@@ -213,18 +213,23 @@
        padding: 7rem 5rem 7rem 5rem;
        text-align: center;
      }
+
      #header {
        padding-left: 2rem;
-       flex-direction: column;
+       height: 10rem;
        width: 0;
-       align-items: flex-start;
+       align-items: center;
        opacity: 0;
-       /* transition-property: width; */
        transition: 0.5s ease-in-out;
      }
-     #nav {
-       flex-direction: column;
-       align-items: flex-start;
+     #logo {
+       display: none;
+     }
+     #svg1 {
+       display: block;
+     }
+     #nav h3 {
+       color: black;
      }
 
 
@@ -286,10 +291,10 @@
       <div class="white"></div>
     </div>
   </main>
-  <!-- <div class="attribution">
+  <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+    Coded by <a href="">Rahul Kumar Gautam</a>.
+  </div>
   <script type="text/javascript">
 
   var i = 0;
@@ -326,7 +331,7 @@ document.getElementById("svg1").addEventListener("click", function() {
   document.getElementById("svg1").style.display = "none";
     document.getElementById("header").style.opacity = "1";
     document.getElementById("header").style.width = "100%";
-    document.getElementById("header").style.background = "rgba(0, 0, 255, 0.5)";
+    document.getElementById("header").style.background = "white";
     document.getElementById("close").style.display = "block";
 
 
