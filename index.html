@@ -2,18 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <title>Frontend Mentor | Room homepage</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     * { padding: 0;
         margin: 0;
         box-sizing: border-box;
      }
      body { font-family: 'Spartan', sans-serif;
+            /* text-align: center; */
           }
      html {
       font-size: 62.5%;
@@ -27,6 +29,7 @@
       width: 100%;
       display: flex;
       justify-content: space-between;
+      background: yellow;
     }
     .left {
       height: 100%;
@@ -48,7 +51,7 @@
       justify-content: space-between;
     }
     .discover {
-      padding: 12rem 10rem 0 10rem;
+      padding: 10rem 10rem 0 10rem;
     }
     .discover h1 {
       font-size: 3.5rem;
@@ -97,7 +100,7 @@
       font-size: 1.2rem;
       line-height: 2.2rem;
       margin-top: 1.5rem;
-      color: hsl(0, 0%, 63%);
+      color: hsl(0, 0%, 63%)
     }
     .black {
       height: 100%;
@@ -121,7 +124,6 @@
       background: transparent;
       justify-content: space-evenly;
       align-items: center;
-      transition: 0.5s ease-in-out;
     }
     #nav {
       display: flex;
@@ -165,12 +167,13 @@
       text-align: center;
       background: red;
     }
-    @media only screen and (max-width: 1050px) {
-      html {
-        font-size: 50%;
-      }
+
+  @media only screen and (max-width: 1130px) {
+    html {
+      font-size: 50%;
     }
-    @media only screen and (max-width: 800px) {
+  }
+    @media only screen and (max-width: 900px) {
      html {
        font-size: 60%;
      }
@@ -178,7 +181,7 @@
        height: auto;
      }
      .upperRow {
-       height: 90rem;
+       height: 80rem;
        display: flex;
        flex-direction: column;
      }
@@ -206,7 +209,7 @@
        background: hsl(0, 0%, 0%);
      }
      .lowerRow {
-       height: 85rem;
+       height: 90rem;
        display: flex;
        flex-direction: column;
      }
@@ -220,7 +223,7 @@
      }
      .about {
        padding: 7rem 5rem 7rem 5rem;
-       text-align: left;
+       text-align: center;
      }
 
      #header {
@@ -231,9 +234,25 @@
        opacity: 0;
        transition: 0.5s ease-in-out;
      }
+     #header.expanded {
+       opacity: 1;
+       width: 100%;
+       background: hsl(0, 0%, 100%);
+     }
      #logo {
-       position: absolute;
        display: none;
+     }
+     #svg1 {
+       display: block;
+     }
+     #svg1.off {
+       display: none;
+     }
+     #nav h3 {
+       color: black;
+     }
+     #close.on {
+       display: block;
      }
      #logoMobileDiv {
        width: 100%;
@@ -241,13 +260,6 @@
      #logoMobile {
        display: inline-block;
      }
-     #svg1 {
-       display: block;
-     }
-     #nav h3 {
-       color: black;
-     }
-
 }
 
 </style>
@@ -272,13 +284,14 @@
     </div>
     <div class="upperRow">
       <div id="frontImage" class="left">
+        <!-- <img src="images/desktop-image-hero-1.jpg" alt="whiteChair"> -->
       </div>
       <div class="right">
         <div class="top">
           <div class="discover">
 
           <h1>Discover innovative ways to decorate</h1>
-          <p>We provide unmatched quality, comfort, and style for property owners across the country.
+          <p id="intro">We provide unmatched quality, comfort, and style for property owners across the country.
           Our experts combine form and function in bringing your vision to life. Create a room in your
           own style with our collection and make your property a reflection of you and what you love.</p>
           <div class="shop">
@@ -290,6 +303,8 @@
         <div class="arrowHead">
           <button type="button" name="button"><svg width="14" height="24" onclick="leftClick()" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg></button>
           <button type="button" name="button"><svg width="14" height="24" onclick="rightClick()" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg></button>
+          <!-- <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L1 12l12 12" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg> -->
+          <!-- <svg width="14" height="24" xmlns="http://www.w3.org/2000/svg"><path d="M1 0l12 12L1 24" stroke="#FFF" fill="none" fill-rule="evenodd"/></svg> -->
         </div>
       </div>
     </div>
@@ -305,20 +320,21 @@
       </div>
       <div class="white"></div>
     </div>
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="">Rahul Kumar Gautam</a>.
-    </div>
-  </main>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="">Rahul Kumar Gautam</a>.
+  </div>
+</main>
   <script>
+// ------------------------------------------------FOR SLIDING IMAGE SECTION----
   var i = 0;
   var imageList = [1, 2, 3]
-  var frontimage = document.getElementById("frontImage");
+  var frontimage = $("#frontImage");
   function leftClick() {
     if (window.matchMedia("(max-width: 700px)").matches) {
-      frontimage.style.backgroundImage = "url('images/mobile-image-hero-"+imageList[i]+".jpg')";
+      frontimage.css({"background-image": "url('images/mobile-image-hero-"+imageList[i]+".jpg')"});
     } else {
-      frontimage.style.backgroundImage = "url('images/desktop-image-hero-"+imageList[i]+".jpg')";
+      frontimage.css({"background-image": "url('images/desktop-image-hero-"+imageList[i]+".jpg')"});
     }
     if (i==imageList.length-1) {
       i = 0;
@@ -334,31 +350,24 @@
       i--;
     }
     if (window.matchMedia("(max-width: 700px)").matches) {
-      frontimage.style.backgroundImage = "url('images/mobile-image-hero-"+imageList[i]+".jpg')";
+      frontimage.css({"background-image": "url('images/mobile-image-hero-"+imageList[i]+".jpg')"});
     } else {
-      frontimage.style.backgroundImage = "url('images/desktop-image-hero-"+imageList[i]+".jpg')";
+      frontimage.css({"background-image": "url('images/desktop-image-hero-"+imageList[i]+".jpg')"});
     }
-
   }
+// ----------------------------------------------FOR NAVIGATION BAR-------------
+$("#svg1").click(function() {
+  $("#svg1").addClass("off");
+    $("#header").addClass("expanded");
+    $("#close").addClass("on");
+});
 
-document.getElementById("svg1").addEventListener("click", function() {
-  document.getElementById("svg1").style.display = "none";
-    document.getElementById("header").style.opacity = "1";
-    document.getElementById("header").style.width = "100%";
-    document.getElementById("header").style.background = "hsl(0, 0%, 100%)";
-    document.getElementById("close").style.display = "block";
-
-
+$("#close").click(function() {
+  $("#header").removeClass("expanded");
+  $("#svg1").removeClass("off");
+  $("#close").removeClass("on");
 })
 
-document.getElementById("close").addEventListener("click", function() {
-  document.getElementById("header").style.opacity = "0";
-  document.getElementById("header").style.width = "0";
-  document.getElementById("header").style.background = "transparent";
-  document.getElementById("svg1").style.display = "block";
-  document.getElementById("close").style.display = "none";
-
-})
   </script>
 </body>
 </html>
